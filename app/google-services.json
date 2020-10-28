@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "920954834284",
+    "firebase_url": "https://pec2-jamaldevelop.firebaseio.com",
+    "project_id": "pec2-jamaldevelop",
+    "storage_bucket": "pec2-jamaldevelop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920954834284:android:944559096dba02c1b8b749",
+        "android_client_info": {
+          "package_name": "edu.uoc.pac2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920954834284-it31a53m92l344lqc5fks87v4ima9t5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG_VzO99JCOIDy2fgV3eueOby1W5g62DI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920954834284-it31a53m92l344lqc5fks87v4ima9t5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
