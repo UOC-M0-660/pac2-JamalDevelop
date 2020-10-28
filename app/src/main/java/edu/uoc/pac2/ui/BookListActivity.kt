@@ -1,14 +1,15 @@
 package edu.uoc.pac2.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import edu.uoc.pac2.MyApplication
+import com.google.firebase.firestore.FirebaseFirestore
 import edu.uoc.pac2.R
 import edu.uoc.pac2.data.Book
-import edu.uoc.pac2.data.BooksInteractor
+
 
 /**
  * An activity representing a list of Books.
@@ -53,7 +54,16 @@ class BookListActivity : AppCompatActivity() {
 
     // TODO: Get Books and Update UI
     private fun getBooks() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("books").addSnapshotListener { value, e ->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
+            }
 
+            val books: List<Book> = value!!.mapNotNull {it.toObject (Book::class.java)}
+            adapter.setBooks(books)//Updating RecyclerView
+        }
     }
 
     // TODO: Load Books from Room
