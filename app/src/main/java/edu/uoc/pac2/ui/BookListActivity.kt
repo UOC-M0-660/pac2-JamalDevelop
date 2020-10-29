@@ -46,6 +46,7 @@ class BookListActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.title = title
+
     }
 
     // Init RecyclerView
