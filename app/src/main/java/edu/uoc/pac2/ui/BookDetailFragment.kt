@@ -12,12 +12,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.room.Room
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 import edu.uoc.pac2.R
 import edu.uoc.pac2.data.ApplicationDatabase
 import edu.uoc.pac2.data.Book
+
 
 /**
  * A fragment representing a single Book detail screen.
@@ -51,31 +53,29 @@ class BookDetailFragment : Fragment() {
 
             Handler(Looper.getMainLooper()).post {
                 //code that runs in main
-                initUI(book)
+                initUI(book, context)
             }
         }
 
     }
 
     // TODO: Init UI with book details
-    private fun initUI(book: Book?) {
+    private fun initUI(book: Book?, context: Context) {
         activity?.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)?.title = book?.title//Title toolbar
         activity?.findViewById<TextView>(R.id.book_author)?.text = book?.author//Author Book
         activity?.findViewById<TextView>(R.id.book_date)?.text = book?.publicationDate//Publication Date Book
         activity?.findViewById<TextView>(R.id.book_detail)?.text = book?.description//Description Book
         Picasso.get().load(book?.urlImage).into(activity?.findViewById(R.id.book_image))
-//        Picasso.get().load(book?.urlImage).into(activity?.findViewById<CollapsingToolbarLayout>(R.id.app_bar))
 
-//        val appBar = activity?.findViewById<AppBarLayout>(R.id.app_bar)
+        val appBar = activity?.findViewById<AppBarLayout>(R.id.app_bar)
+//        Picasso.get().load(book?.urlImage).into(appBar?.background)
+
+//        Glide.with(context).load(book?.urlImage).into(appBar.background)
+
+//        val toolBar = activity?.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
 //        val bitMapImage = Picasso.get().load(book?.urlImage).get()
-//        val draw = BitmapDrawable(resources,bitMapImage)
-//
-//
-//        appBar?.setBackgroundDrawable()
 
-//        appBar?.get(activity.hashCode())?.background = draw
-//        appBar?.background = draw
-//        activity?.findViewById<CollapsingToolbarLayout>(R.id.app_bar).background
+
 
 
         //Share
