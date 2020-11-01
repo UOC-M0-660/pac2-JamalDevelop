@@ -9,9 +9,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.room.Room
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -20,12 +18,6 @@ import com.squareup.picasso.Picasso
 import edu.uoc.pac2.R
 import edu.uoc.pac2.data.ApplicationDatabase
 import edu.uoc.pac2.data.Book
-import kotlinx.android.synthetic.main.activity_book_detail.*
-import kotlinx.android.synthetic.main.fragment_book_detail.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.lang.StringBuilder
-import java.text.SimpleDateFormat
 
 /**
  * A fragment representing a single Book detail screen.
@@ -72,7 +64,21 @@ class BookDetailFragment : Fragment() {
         activity?.findViewById<TextView>(R.id.book_date)?.text = book?.publicationDate//Publication Date Book
         activity?.findViewById<TextView>(R.id.book_detail)?.text = book?.description//Description Book
         Picasso.get().load(book?.urlImage).into(activity?.findViewById(R.id.book_image))
+//        Picasso.get().load(book?.urlImage).into(activity?.findViewById<CollapsingToolbarLayout>(R.id.app_bar))
 
+//        val appBar = activity?.findViewById<AppBarLayout>(R.id.app_bar)
+//        val bitMapImage = Picasso.get().load(book?.urlImage).get()
+//        val draw = BitmapDrawable(resources,bitMapImage)
+//
+//
+//        appBar?.setBackgroundDrawable()
+
+//        appBar?.get(activity.hashCode())?.background = draw
+//        appBar?.background = draw
+//        activity?.findViewById<CollapsingToolbarLayout>(R.id.app_bar).background
+
+
+        //Share
         val fab = activity?.findViewById<FloatingActionButton>(R.id.fab)
         fab?.setOnClickListener {
             shareContent(book)

@@ -3,19 +3,20 @@ package edu.uoc.pac2.ui
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.uoc.pac2.MyApplication
 import edu.uoc.pac2.R
+import edu.uoc.pac2.data.ApplicationDatabase
 import edu.uoc.pac2.data.Book
-import edu.uoc.pac2.data.BookDao
 import edu.uoc.pac2.data.BooksInteractor
-import edu.uoc.pac2.data.ApplicationDatabase as ApplicationDatabase
 
 
 /**
@@ -26,6 +27,7 @@ class BookListActivity : AppCompatActivity() {
     private val TAG = "BookListActivity"
 
     private lateinit var adapter: BooksListAdapter
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,13 @@ class BookListActivity : AppCompatActivity() {
         getBooks()
 
         // TODO: Add books data to Firestore [Use once for new projects with empty Firestore Database]
+
+
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
     }
 
     // Init Top Toolbar
@@ -46,7 +55,6 @@ class BookListActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.title = title
-
     }
 
     // Init RecyclerView

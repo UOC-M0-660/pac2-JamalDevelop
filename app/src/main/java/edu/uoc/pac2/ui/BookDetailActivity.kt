@@ -2,7 +2,12 @@ package edu.uoc.pac2.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.Window
+import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
+import androidx.transition.Explode
+import androidx.transition.Slide
+import androidx.transition.Transition
 import edu.uoc.pac2.R
 import kotlinx.android.synthetic.main.activity_book_detail.*
 
@@ -18,6 +23,7 @@ class BookDetailActivity : AppCompatActivity() {
 
         // Show the Up button in the action bar.
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
