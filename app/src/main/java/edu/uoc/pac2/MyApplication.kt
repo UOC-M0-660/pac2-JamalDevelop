@@ -4,13 +4,11 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
-import android.net.NetworkInfo
 import android.net.NetworkRequest
 import android.os.AsyncTask
-import android.util.Log
-import androidx.room.Room
-import edu.uoc.pac2.data.*
-import kotlin.properties.Delegates
+import com.google.android.gms.ads.MobileAds
+import edu.uoc.pac2.data.BooksInteractor
+import edu.uoc.pac2.data.FirestoreBookData
 
 /**
  * Entry point for the Application.
@@ -27,6 +25,7 @@ class MyApplication : Application() {
 //        Room.databaseBuilder(this, ApplicationDatabase::class.java, "book").build()
         // TODO: Init BooksInteractor
 //        getBooksInteractor()
+        MobileAds.initialize(this)
 
     }
 
