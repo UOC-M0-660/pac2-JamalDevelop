@@ -2,8 +2,14 @@ package edu.uoc.pac2.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.Window
+import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
+import androidx.transition.Explode
+import androidx.transition.Slide
+import androidx.transition.Transition
 import edu.uoc.pac2.R
+import kotlinx.android.synthetic.main.activity_book_detail.*
 
 /**
  * An activity representing a single Book detail screen.
@@ -13,6 +19,11 @@ class BookDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_detail)
+        setSupportActionBar(detail_toolbar)
+
+        // Show the Up button in the action bar.
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
@@ -29,7 +40,7 @@ class BookDetailActivity : AppCompatActivity() {
             val itemID = intent.getIntExtra(BookDetailFragment.ARG_ITEM_ID, -1)
             val fragment = BookDetailFragment.newInstance(itemID)
             supportFragmentManager.beginTransaction()
-                    .add(R.id.frameLayout, fragment)
+                    .add(R.id.book_detail_container, fragment)
                     .commit()
         }
     }

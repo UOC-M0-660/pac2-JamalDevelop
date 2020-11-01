@@ -6,4 +6,8 @@
     <string name="share_info">Share to other apps</string>
 
     <string name="book_not_found">Book not found</string>
+    <string name="orson_scott_card">Orson Scott Card</string>
+    <string name="date_default">15/01/1985</string>
+    <string name="description">Description</string>
+    <string name="share">Share</string>
 </resources>
